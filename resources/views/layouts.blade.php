@@ -12,9 +12,10 @@
         
     </head>
     <body class=" antialiased">
-        @if(session()->has('Success'))
+        @if(session()->has('success'))
         <div class="alert">
-            {{session()->get('Success')}}
+            {{session()->get('success')}}
+        </div>
         @endif
        <div class="nav-wrapper">
         <nav>

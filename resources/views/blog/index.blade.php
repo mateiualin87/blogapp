@@ -3,7 +3,7 @@
     <div class="blog-wrapper">
         @foreach($blogs as $blog)
         <div class="blog-card">
-        <img src="/images/blog.jpeg" alt="">
+        <img src="{{asset('images/'.$blog->image)}}" alt="">
             <div class="blog-content"> 
                 <div class="title">{{$blog->title}}</div>
                 <div class="description">{{$blog->description}}</div>

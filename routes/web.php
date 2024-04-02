@@ -11,4 +11,4 @@ Route::get('/blog', [App\Http\Controllers\BlogController::class,'index'])->name(
 
 Route::get('/blog/create', [App\Http\Controllers\BlogController::class,'create'])->name('blog.create');
 
-Route::post('/blog.store',[App\Http\Controllers\BlogController::class,'store'])->name('blog.store');
+Route::post('/blog/store',[App\Http\Controllers\BlogController::class,'store'])->name('blog.store');

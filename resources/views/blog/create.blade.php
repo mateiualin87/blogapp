@@ -1,7 +1,7 @@
 @extends('layouts')
 @section('content')
     <div id="form-wrapper">
-        <form action="{{'blog.store'}}" method="POST" enctype="multipart/form-data"> 
+        <form action="{{route('blog.store')}}" method="POST" enctype='multipart/form-data'> 
             @csrf
             <div>
                 <input type="text" id="title" name="title" placeholder="blog title">
@@ -13,9 +13,11 @@
                 <textarea name="blogBody" id="content" placeholder="write blog content" cols="30" rows="10"></textarea>
             </div>
             <div>
-                <input type="file" id="file">
+                <input type="file" id="file" name="image">
             </div>
-            <div class="button" id="button-form">Submit</div>
+            <div>
+            <button type="submit" class="button" id="button-form">Submit</button>
+            </div>
         </form>
     </div>
 @endsection
