@@ -13,6 +13,6 @@ Route::get('/blog/create', [App\Http\Controllers\BlogController::class,'create']
 
 Route::post('/blog/store',[App\Http\Controllers\BlogController::class,'store'])->name('blog.store');
 
-route::get('/blog/edit/{blog}',[App\Http\Controllers\BlogController::class,'edit'])->name('blog.edit');
+Route::get('/blog/edit/{blog}',[App\Http\Controllers\BlogController::class,'edit'])->name('blog.edit');
 
 Route::patch('/blog/update/{blog}',[App\Http\Controllers\BlogController::class,'update'])->name('blog.update');
