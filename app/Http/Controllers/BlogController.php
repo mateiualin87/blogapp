@@ -19,19 +19,24 @@ class BlogController extends Controller
         return view('blog.create');
     }
     public function store(Request $request)
-{
-    $newImageName = time() . '-' . $request->title . '.' . $request->image->extension();
-    $request->image->move(public_path('images'), $newImageName);
+    {
+        $newImageName = time() . '-' . $request->title . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $newImageName);
 
-    Blog::create([
-        'title' => $request->title,
-        'description' => $request->description,
-        'content' => $request->blogBody,
-        'image' => $newImageName
-    ]);
+        Blog::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'content' => $request->blogBody,
+            'image' => $newImageName
+        ]);
     
-    return redirect(route('blog.index'))->with('success', 'Blog post created successfully.');
+        return redirect(route('blog.index'))->with('success', 'Blog post created successfully.');
 
-}
+    }
+
+    public function edit(Blog $blog)
+    {
+        return view('blog.edit')->with('blog', $blog);
+    }
 
 }

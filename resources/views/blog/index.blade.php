@@ -12,6 +12,9 @@
         <div class="button-wrapper">
             <div class="button">Read More</div>
         </div>
+        <div class="button-wrapper">
+            <a href="{{route('blog.edit', $blog->id)}}"><div class="button" style="margin-top: 20px; background-color: #ebe7e7;">Edit</div></a>
+        </div>
         </div>
         @endforeach
     </div>
