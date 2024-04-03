@@ -39,4 +39,32 @@ class BlogController extends Controller
         return view('blog.edit')->with('blog', $blog);
     }
 
+    public function update(Request $request, Blog $blog)
+    {
+        /*$request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'blogBody' => 'required',
+        ]);
+
+        $blog->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'content' => $request->blogBody,
+        ]);*/
+
+        $blog->title = $request->title;
+        $blog->description = $request->description;
+        $blog->content = $request->blogBody;
+
+        if($request->hasFile('image')){
+            $newImageName = time() . '-' . $request->title . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $newImageName);
+            $blog->image = $newImageName;
+        }
+
+        $blog->save();
+        return redirect(route('blog.index'))->with('success', 'Blog post updated successfully.');
+    }
+
 }

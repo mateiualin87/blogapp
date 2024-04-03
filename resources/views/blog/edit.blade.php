@@ -1,7 +1,8 @@
 @extends('layouts')
 @section('content')
     <div id="form-wrapper">
-        <form action="" method="POST" enctype='multipart/form-data'> 
+        <form action="{{route('blog.update', $blog->id)}}" method="POST" enctype='multipart/form-data'> 
+            @method('PATCH')
             @csrf
             <div>
                 <input type="text" id="title" name="title" placeholder="blog title" value="{{$blog->title}}">
